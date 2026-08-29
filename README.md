@@ -1,5 +1,5 @@
 WORK IN PROGRESS
-It is forked from https://github.com/FirPE-Team/WinPEBuilder to translate and build English Verstion WinPE
+It is forked from https://github.com/FirPE-Team/WinPEBuilder to translate and build English version WinPE
 # WinPEBuilder
 
 ## Introduction
