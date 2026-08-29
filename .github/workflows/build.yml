@@ -11,18 +11,18 @@ run-name: >
     "Ukrainian (Ukraine)":"UK","Chinese (Simplified, China)":"ZH","Chinese (Traditional, Taiwan)":"ZH"
   }')[inputs.language] }}
 on:
-  # 手动触发
+  # Manual trigger
   workflow_dispatch:
     inputs:
       pe_project:
-        description: '请选择 WinPE 项目'
+        description: 'Select a WinPE project.'
         required: true
         default: 'WinPE'
         type: choice
         options:
           - WinPE
       versions:
-        description: "Windows 版本选择"
+        description: "Windows Version Selection"
         type: choice
         options:
           - Windows 10 22H2
@@ -37,7 +37,7 @@ on:
         default: Windows 11 25H2
         required: true
       language:
-        description: "语言选择"
+        description: "Language selection"
         type: choice
         options:
           - Arabic (Saudi Arabia)
@@ -81,7 +81,7 @@ on:
         default: Chinese (Simplified, China)
         required: true
       revision:
-        description: "修订号（可选）"
+        description: "Revision number (optional)"
         type: string
         required: false
 jobs:
@@ -178,30 +178,30 @@ jobs:
       - name: Run WinPEBuilder
         shell: pwsh
         run: |
-          # 获取 ISO 路径
+          # Get ISO path
           $isoPath = (Get-ChildItem "C:\WindowsISO\*.iso" | Select-Object -First 1).FullName
           if ($null -eq $isoPath) {   
-            Write-Error "在 C:\WindowsISO 中未找到任何 ISO 文件！"
+            Write-Error "exit C:\WindowsISO No results found ISO file!"
             exit 1
           }
 
-          # 挂载镜像
+          # Mount image
           Mount-DiskImage -ImagePath $isoPath
 
-          # 等待镜像挂载完成
+          # Waiting for the image to mount completely
           Start-Sleep -Seconds 5 
           $driveLetter = (Get-DiskImage -ImagePath $isoPath | Get-Volume).DriveLetter
           if ([string]::IsNullOrWhiteSpace($driveLetter)) {
-            Write-Error "无法获取挂载的盘符！"
+            Write-Error "Unable to get mounted drive letter!"
             Dismount-DiskImage -ImagePath $isoPath
             exit 1
           }
-          Write-Host "镜像已挂载到盘符: ${driveLetter}:"
+          Write-Host "The image is mounted to the drive letter: ${driveLetter}:"
 
-          # 运行 WinPEBuilder
+          # run WinPEBuilder
           & $env:GITHUB_WORKSPACE\WinPEBuilder.cmd --source-folder "${driveLetter}:" --project "${{ inputs.pe_project }}" --make-iso
 
-          # 卸载镜像
+          #  Dismount image
           Dismount-DiskImage -ImagePath $isoPath
 
       - name: Upload ISO artifact
