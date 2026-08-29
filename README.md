@@ -1,6 +1,8 @@
+WORK IN PROGRESS
+It is forked from https://github.com/FirPE-Team/WinPEBuilder to translate and build English Verstion WinPE
 # WinPEBuilder
 
-## 简介
+## Introduction
 
 WinPEBuilder 是用于构建 WindowsPE 的批处理库，内含常用的宏命令，可快速实现对基础 boot.wim/winre.wim 进行修改。
 
