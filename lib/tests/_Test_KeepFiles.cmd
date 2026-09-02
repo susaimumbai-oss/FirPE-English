@@ -4,31 +4,30 @@ cd ..
 
 if not exist tests\tmp md tests\tmp
 
-if not exist tests\tmp\Windows\zh-cn md tests\tmp\Windows\zh-cn
 if not exist tests\tmp\Windows\en-us md tests\tmp\Windows\en-us
 if not exist tests\tmp\Windows\System32 md tests\tmp\Windows\System32
 if not exist tests\tmp\Windows\System32\drivers md tests\tmp\Windows\System32\drivers
 
-echo test > tests\tmp\Windows\zh-cn\notepad.exe.mui
-echo test > tests\tmp\Windows\zh-cn\regedit.exe.mui
-echo test > tests\tmp\Windows\zh-cn\calc.exe.mui
-echo test > tests\tmp\Windows\zh-cn\mspaint.exe.mui
-echo test > tests\tmp\Windows\zh-cn\cmd.exe.mui
-echo test > tests\tmp\Windows\zh-cn\explorer.exe.mui
-echo test > tests\tmp\Windows\zh-cn\iexplore.exe.mui
-echo test > tests\tmp\Windows\zh-cn\mmc.exe.mui
-echo test > tests\tmp\Windows\zh-cn\msconfig.exe.mui
-echo test > tests\tmp\Windows\zh-cn\services.msc
-echo test > tests\tmp\Windows\zh-cn\compmgmt.msc
-echo test > tests\tmp\Windows\zh-cn\devmgmt.msc
-echo test > tests\tmp\Windows\zh-cn\eventvwr.msc
-echo test > tests\tmp\Windows\zh-cn\gpedit.msc
-echo test > tests\tmp\Windows\zh-cn\secpol.msc
-echo test > tests\tmp\Windows\zh-cn\taskmgr.exe.mui
-echo test > tests\tmp\Windows\zh-cn\regedt32.exe.mui
-echo test > tests\tmp\Windows\zh-cn\control.exe.mui
-echo test > tests\tmp\Windows\zh-cn\rstrui.exe.mui
-echo test > tests\tmp\Windows\zh-cn\msinfo32.exe.mui
+echo test > tests\tmp\Windows\en-us\notepad.exe.mui
+echo test > tests\tmp\Windows\en-us\regedit.exe.mui
+echo test > tests\tmp\Windows\en-us\calc.exe.mui
+echo test > tests\tmp\Windows\en-us\mspaint.exe.mui
+echo test > tests\tmp\Windows\en-us\cmd.exe.mui
+echo test > tests\tmp\Windows\en-us\explorer.exe.mui
+echo test > tests\tmp\Windows\en-us\iexplore.exe.mui
+echo test > tests\tmp\Windows\en-us\mmc.exe.mui
+echo test > tests\tmp\Windows\en-us\msconfig.exe.mui
+echo test > tests\tmp\Windows\en-us\services.msc
+echo test > tests\tmp\Windows\en-us\compmgmt.msc
+echo test > tests\tmp\Windows\en-us\devmgmt.msc
+echo test > tests\tmp\Windows\en-us\eventvwr.msc
+echo test > tests\tmp\Windows\en-us\gpedit.msc
+echo test > tests\tmp\Windows\en-us\secpol.msc
+echo test > tests\tmp\Windows\en-us\taskmgr.exe.mui
+echo test > tests\tmp\Windows\en-us\regedt32.exe.mui
+echo test > tests\tmp\Windows\en-us\control.exe.mui
+echo test > tests\tmp\Windows\en-us\rstrui.exe.mui
+echo test > tests\tmp\Windows\en-us\msinfo32.exe.mui
 
 echo test > tests\tmp\Windows\en-us\explorer.exe.mui
 echo test > tests\tmp\Windows\en-us\shell32.dll.mui
@@ -75,12 +74,12 @@ echo test > tests\tmp\Windows\System32\kernelbase.dll
 echo test > tests\tmp\Windows\System32\kernel.appcore.dll
 
 set "APP_TMP_PATH=%cd%\tests\tmp"
-set "APP_PE_LANG=zh-CN"
+set "APP_PE_LANG=en-US"
 set "X=%~dp0tmp"
 
 rem ============================================================================
 
-call KeepFiles \Windows\zh-cn\* "notepad.exe.mui,regedit.exe.mui"
+call KeepFiles \Windows\en-us\* "explorer.exe.mui, notepad.exe.mui,regedit.exe.mui"
 call KeepFiles \Windows\System32\dm*.dll "dm1.dll,dm2.dll"
 call KeepFiles \Windows\System32\drivers\*.sys "ntfs.sys,cng.sys"
 
@@ -102,6 +101,7 @@ call KeepFiles \Windows\System32\*.exe %0 :[keep_exe_files]
 goto :EOF
 
 :[keep_exe_files]
+explorer.exe
 notepad.exe
 calc.exe
 mspaint.exe
