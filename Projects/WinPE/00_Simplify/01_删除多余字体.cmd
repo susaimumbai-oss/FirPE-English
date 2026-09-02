@@ -1,7 +1,8 @@
 call DelFiles %0 :end_files
 goto :end_files
 
-; 系统语言文件
+; System language files
+
 \Windows\System32\0409
 \Windows\System32\af-ZA
 \Windows\System32\am-ET
@@ -50,6 +51,7 @@ goto :end_files
 \Windows\System32\ug-CN
 \Windows\System32\ur-PK
 \Windows\System32\uz-Latn-UZ
+\Windows\System32\zh-CN
 
 \Windows\System32\ar-SA
 \Windows\System32\bg-BG
@@ -92,6 +94,7 @@ goto :end_files
 \Windows\System32\gl-ES
 \Windows\System32\id-ID
 \Windows\System32\vi-VN
+\Windows\System32\zh-CN
 
 ; 启动引导字体
 \Windows\Boot\fonts\jpn_boot.ttf
@@ -233,7 +236,7 @@ goto :end_files
 \Windows\Fonts\vgasysr.fon
 \Windows\Fonts\vgasyst.fon
 
-; 系统语言文件
+; System language files
 \Windows\System32\C_932.NLS
 \Windows\System32\C_949.NLS
 \Windows\System32\C_950.NLS
