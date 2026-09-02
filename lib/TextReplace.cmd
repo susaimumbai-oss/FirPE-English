@@ -1,6 +1,6 @@
 rem MACRO:TextReplace
-rem 注意：仅支持简单字符串替换，不支持正则表达式
-rem 用法: call TextReplace "file.txt" "old" "new"
+rem Note：Only supports basic string，Not support regular expressions
+rem Using: call TextReplace "file.txt" "old" "new"
 
 if "x%~1"=="x" goto :EOF
 echo [MACRO]TextReplace %*
