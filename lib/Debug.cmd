@@ -1,8 +1,8 @@
 echo.
 echo ===== DEBUG MODE =====
-echo 输入任意命令执行
-echo 输入 continue 继续执行
-echo 输入 exit 退出构建
+echo Enter any command to execute
+echo Enter continue to execute
+echo Enter exit Cancel Build
 echo ======================
 :debug_loop
 set /p cmd=debug^> 
