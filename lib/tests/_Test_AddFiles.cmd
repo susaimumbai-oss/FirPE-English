@@ -9,7 +9,7 @@ copy /y tests\AddFiles\AddFiles_SYSMUI.txt tests\tmp\ > nul
 copy /y tests\AddFiles\AddFiles_SYSRES.txt tests\tmp\ > nul
 
 set "APP_TMP_PATH=%cd%\tests\tmp"
-set "APP_PE_LANG=zh-CN"
+set "APP_PE_LANG=en-US"
 set "X=%~dp0tmp"
 set ADDFILES_INITED=1
 for /f "usebackq delims=" %%i in ("%APP_TMP_PATH%\AddFiles_SYSMUI.txt") do set "MUI_LIST[%%i]=1"
@@ -34,8 +34,8 @@ compmgmt.msc,CompMgmtLauncher.exe
 ; Filesystem Management
 fsmgmt.msc
 
-+if %APP_PE_LANG% == zh-CN
-zh-CN\compmgmt.msc
++if %APP_PE_LANG% == en-US
+en-US\compmgmt.msc
 -if
 
 :end_files
