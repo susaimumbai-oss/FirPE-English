@@ -49,7 +49,7 @@ echo. > tests\tmp\Windows\System32\test18.dll
 echo. > tests\tmp\Windows\System32\test19.dll
 
 set "APP_TMP_PATH=%cd%\tests\tmp"
-set "APP_PE_LANG=zh-CN"
+set "APP_PE_LANG=en-US"
 set "APP_PE_VER=10.0.22631"
 set "X=%~dp0tmp"
 
@@ -58,10 +58,10 @@ call DelFiles "\Windows\System32\test1.exe"
 call DelFiles "\Windows\System32\test2.dll,test3.msc"
 call DelFiles "\Windows\System32\drivers"
 
-if exist tests\tmp\Windows\System32\test1.exe echo [失败] 文件仍然存在
-if exist tests\tmp\Windows\System32\test2.dll echo [失败] test2.dll 仍然存在
-if exist tests\tmp\Windows\System32\test3.msc echo [失败] test3.msc 仍然存在
-if exist tests\tmp\Windows\System32\drivers echo [失败] 目录仍然存在
+if exist tests\tmp\Windows\System32\test1.exe echo [Failed] The file still exists
+if exist tests\tmp\Windows\System32\test2.dll echo [Failed] test2.dll still exists
+if exist tests\tmp\Windows\System32\test3.msc echo [Failed] test3.msc still exists
+if exist tests\tmp\Windows\System32\drivers echo [Failed] Directory still exists
 
 rem ============================================================================
 call DelFiles %0 :end_files
@@ -83,29 +83,29 @@ test2.exe
 +ver*
 :end_files
 
-if exist tests\tmp\Windows\System32\testdir\test1.exe echo [失败] test1.exe 仍然存在
-if exist tests\tmp\Windows\System32\testdir\test2.exe echo [失败] test2.exe 仍然存在
+if exist tests\tmp\Windows\System32\testdir\test1.exe echo [Failed] test1.exe still exists
+if exist tests\tmp\Windows\System32\testdir\test2.exe echo [Failed] test2.exe still exists
 
-if exist tests\tmp\Windows\System32\test3.exe echo [失败] test3.exe 仍然存在
-if exist tests\tmp\Windows\System32\test4.exe echo [失败] test4.exe 仍然存在
-if exist tests\tmp\Windows\System32\zh-CN\test3.exe.mui echo [失败] test3.exe.mui 仍然存在
+if exist tests\tmp\Windows\System32\test3.exe echo [Failed] test3.exe still exists
+if exist tests\tmp\Windows\System32\test4.exe echo [Failed] test4.exe still exists
+if exist tests\tmp\Windows\System32\zh-CN\test3.exe.mui echo [Failed] test3.exe.mui still exists
 
-if exist tests\tmp\Windows\SysWOW64\test3.exe echo [失败] SysWOW64\test3.exe 仍然存在
-if exist tests\tmp\Windows\SysWOW64\zh-CN\test3.exe.mui echo [失败] SysWOW64\zh-CN\test3.exe.mui 仍然存在
-if exist tests\tmp\Windows\SystemResources\test3.exe.mun echo [失败] test3.exe.mun 仍然存在
+if exist tests\tmp\Windows\SysWOW64\test3.exe echo [Failed] SysWOW64\test3.exe still exists
+if exist tests\tmp\Windows\SysWOW64\zh-CN\test3.exe.mui echo [Failed] SysWOW64\zh-CN\test3.exe.mui still exists
+if exist tests\tmp\Windows\SystemResources\test3.exe.mun echo [Failed] test3.exe.mun still exists
 
-if exist tests\tmp\Windows\System32\test5.exe echo [失败] test5.exe 仍然存在
-if exist tests\tmp\Windows\System32\test6.exe echo [失败] test6.exe 仍然存在
+if exist tests\tmp\Windows\System32\test5.exe echo [Failed] test5.exe still exists
+if exist tests\tmp\Windows\System32\test6.exe echo [Failed] test6.exe still exists
 
 rem ============================================================================
 
 call DelFiles "\Windows\System32\test1*.exe"
 call DelFiles "\Windows\System32\test1*.dll"
 
-if exist tests\tmp\Windows\System32\test16.exe echo [失败] test16.exe 仍然存在
-if exist tests\tmp\Windows\System32\test17.exe echo [失败] test17.exe 仍然存在
-if exist tests\tmp\Windows\System32\test18.dll echo [失败] test18.dll 仍然存在
-if exist tests\tmp\Windows\System32\test19.dll echo [失败] test19.dll 仍然存在
+if exist tests\tmp\Windows\System32\test16.exe echo [Failed] test16.exe still exists
+if exist tests\tmp\Windows\System32\test17.exe echo [Failed] test17.exe still exists
+if exist tests\tmp\Windows\System32\test18.dll echo [Failed] test18.dll still exists
+if exist tests\tmp\Windows\System32\test19.dll echo [Failed] test19.dll still exists
 
 rem ============================================================================
 call DelFiles %0 :[DirectX_Files]
@@ -118,8 +118,8 @@ test15.dll
 goto :EOF
 
 :test_files_5
-if exist tests\tmp\Windows\System32\testdir2\test14.exe echo [失败] test14.exe 仍然存在
-if exist tests\tmp\Windows\System32\testdir2\test15.dll echo [失败] test15.dll 仍然存在
+if exist tests\tmp\Windows\System32\testdir2\test14.exe echo [Failed] test14.exe still exists
+if exist tests\tmp\Windows\System32\testdir2\test15.dll echo [Failed] test15.dll still exists
 
 if exist tests\tmp\Windows rd /s /q tests\tmp\Windows
 pause
