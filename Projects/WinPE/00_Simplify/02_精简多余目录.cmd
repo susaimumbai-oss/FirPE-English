@@ -17,7 +17,6 @@ RD /S /Q %X%\Windows\ServiceState
 RD /S /Q %X%\Windows\Speech
 RD /S /Q %X%\Windows\tracing
 RD /S /Q %X%\Windows\WaaS
-RD /S /Q %X%\Windows\en-US
 RD /S /Q %X%\Windows\Logs
 RD /S /Q %X%\Windows\schemas
 RD /S /Q %X%\Windows\security
