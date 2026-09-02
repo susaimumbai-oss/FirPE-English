@@ -14,7 +14,7 @@ if not ERRORLEVEL 1 (
 )
 if "x%~1"=="xrunas" shift
 
-rem 卸载注册表
+rem Unload Registry Entries
 reg unload HKLM\Src_SOFTWARE
 reg unload HKLM\Src_SYSTEM
 reg unload HKLM\Src_DEFAULT
@@ -27,7 +27,7 @@ reg unload HKLM\Tmp_DEFAULT
 reg unload HKLM\Tmp_DRIVERS
 reg unload HKLM\Tmp_NTUSER.DAT
 
-rem 遍历 target 目录下所有一级子目录中的 mounted 文件夹
+rem unmount target Directory contents一subdirectory mounted folders
 for /d %%i in ("%cd%\target\*") do (
   if exist "%%i\mounted\" (
     Dism /unmount-image /MountDir:"%%i\mounted" /discard 2>nul
