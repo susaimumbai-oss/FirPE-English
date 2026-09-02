@@ -252,7 +252,7 @@ echo \033[93;46m [Build] Mount base image: %APP_BASE_PATH% | CmdColor.exe
 Dism /mount-wim /wimfile:"%APP_BASE_PATH%" /index:%APP_BASE_INDEX% /mountdir:"%X%"
 call RunHooks after-mount.cmd
 
-rem 挂载注册表
+rem Mount registry
 call RunHooks before-mount-reg.cmd
 echo \033[93;46m [Setup] Mount install image and setup | CmdColor.exe
 reg load HKLM\Src_SOFTWARE "%SRC_PATH%\Windows\System32\config\SOFTWARE"
